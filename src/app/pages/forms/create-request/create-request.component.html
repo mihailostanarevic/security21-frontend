@@ -1,0 +1,72 @@
+<div class="profileWrapper">
+    <form nz-form [formGroup]="validateForm">
+      <nz-form-item>
+        <!-- <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>
+          
+        </nz-form-label> -->
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="firstName" formControlName="firstName" placeholder="First name" />
+          <nz-form-explain *ngIf="validateForm.get('firstName')?.dirty && validateForm.get('firstName')?.errors"
+            >Please enter your first name!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="lastName" formControlName="lastName" placeholder="Last name" />
+          <nz-form-explain *ngIf="validateForm.get('lastName')?.dirty && validateForm.get('lastName')?.errors"
+            >Please enter your last name!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+      
+      <nz-form-item>
+        
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="email" formControlName="email" placeholder="Email" />
+          <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors"
+            >Please enter your email address!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="country" formControlName="country" placeholder="Country" />
+          <nz-form-explain *ngIf="validateForm.get('country')?.dirty && validateForm.get('country')?.errors"
+            >Please enter your country!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="organisation" formControlName="organisation" placeholder="Organisation" />
+          <nz-form-explain *ngIf="validateForm.get('organisation')?.dirty && validateForm.get('organisation')?.errors"
+            >Please enter your organisation name!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="organisationUnit" formControlName="organisationUnit" placeholder="Organisation unit" />
+          <nz-form-explain *ngIf="validateForm.get('organisationUnit')?.dirty && validateForm.get('organisationUnit')?.errors"
+            >Please enter your organisation unit!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button (click)="create()" nz-button nzType="primary" nzGhost>Create</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
