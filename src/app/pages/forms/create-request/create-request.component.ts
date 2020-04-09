@@ -9,8 +9,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateRequestComponent implements OnInit {
 
-  validateForm: FormGroup;
-  currentDate: any;
+  public validateForm: FormGroup;
+  public certificateType: any = null;
+  public extension: any = null;
+  public issuer: any = null;
+  public isVisible: boolean = false;
 
   constructor(private ucService: UserCertificateService, private fb: FormBuilder) { }
 
@@ -25,21 +28,23 @@ export class CreateRequestComponent implements OnInit {
       email: [ null, [Validators.required, Validators.email]],
       country: [ null, [Validators.required]],
       organisation: [ null, [Validators.required]],
-      organisationUnit: [ null, [Validators.required]]
+      organisationUnit: [ null, [Validators.required]],
+      serialNumber: [ null, [Validators.required]]
     });
   }
 
-  create(): void {
+  public create(): void {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
     {
-      this.currentDate = new Date();
       const body = {
         ...this.validateForm.value,
-        date: this.currentDate
+        extension: this.extension,
+        certificateType: this.isVisible,
+        issuerEmail: this.issuer
       }
       this.ucService.createRequest(body).subscribe(data => {
         console.log(body)
@@ -47,4 +52,11 @@ export class CreateRequestComponent implements OnInit {
     }
   }
 
+  public setupVisibility(): void {
+    if(this.certificateType == "certificationAuthority"){
+      this.isVisible = true;
+    }else{
+      this.isVisible = false;
+    }
+  }
 }
