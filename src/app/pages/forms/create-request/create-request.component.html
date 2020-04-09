@@ -116,7 +116,6 @@
       <nz-option nzLabel="Certification authority" nzValue="certificationAuthority"></nz-option>
       <nz-option nzLabel="End user" nzValue="endUser"></nz-option>
     </nz-select>
-    <button (click)="setupVisibility()" style="margin-left: 2%;" nz-button nzType="primary">Confirm type</button>
     
     <br/>
     <br/>
@@ -129,8 +128,7 @@
       nzShowSearchselectedType
       nzAllowClear
       nzPlaceHolder="Choose issuer"
-      [(ngModel)]="issuer"
-      *ngIf="isVisible">  
+      [(ngModel)]="issuer">  
     
       <nz-option nzLabel="Pera" nzValue="pera"></nz-option>
       <nz-option nzLabel="Mare" nzValue="mare"></nz-option>
