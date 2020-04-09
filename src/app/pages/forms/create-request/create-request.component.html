@@ -1,4 +1,10 @@
-<div class="profileWrapper">
+<div class="pictureWrapper">
+  <div class="logo">
+    <a>
+      <h1 style="color: white; font-style: oblique;">Create form</h1>
+    </a>
+  </div>
+  <div class="profileWrapper">
     <form nz-form [formGroup]="validateForm">
       <nz-form-item>
         <!-- <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>
@@ -7,7 +13,7 @@
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="firstName" formControlName="firstName" placeholder="First name" />
           <nz-form-explain *ngIf="validateForm.get('firstName')?.dirty && validateForm.get('firstName')?.errors"
-            >Please enter your first name!</nz-form-explain
+            >Please enter first name!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
@@ -17,7 +23,7 @@
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="lastName" formControlName="lastName" placeholder="Last name" />
           <nz-form-explain *ngIf="validateForm.get('lastName')?.dirty && validateForm.get('lastName')?.errors"
-            >Please enter your last name!</nz-form-explain
+            >Please enter your name!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
@@ -27,7 +33,7 @@
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="email" formControlName="email" placeholder="Email" />
           <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors"
-            >Please enter your email address!</nz-form-explain
+            >Please enter email address!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
@@ -37,7 +43,7 @@
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="country" formControlName="country" placeholder="Country" />
           <nz-form-explain *ngIf="validateForm.get('country')?.dirty && validateForm.get('country')?.errors"
-            >Please enter your country!</nz-form-explain
+            >Please enter country!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
@@ -47,7 +53,7 @@
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="organisation" formControlName="organisation" placeholder="Organisation" />
           <nz-form-explain *ngIf="validateForm.get('organisation')?.dirty && validateForm.get('organisation')?.errors"
-            >Please enter your organisation name!</nz-form-explain
+            >Please enter organisation name!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
@@ -57,16 +63,83 @@
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="organisationUnit" formControlName="organisationUnit" placeholder="Organisation unit" />
           <nz-form-explain *ngIf="validateForm.get('organisationUnit')?.dirty && validateForm.get('organisationUnit')?.errors"
-            >Please enter your organisation unit!</nz-form-explain
+            >Please enter organisation unit!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="serialNumber" formControlName="serialNumber" placeholder="Serial number" />
+          <nz-form-explain *ngIf="validateForm.get('serialNumber')?.dirty && validateForm.get('serialNumber')?.errors"
+            >Please enter serial number!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
 
 
-      <nz-form-item nz-row style="margin-bottom:8px;">
+      <!-- <nz-form-item nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
-          <button (click)="create()" nz-button nzType="primary" nzGhost>Create</button>
+          <button (click)="create()" nz-button nzType="primary" [disabled]="!validateForm.valid" nzGhost>Create</button>
         </nz-form-control>
-      </nz-form-item>
+      </nz-form-item> -->
     </form>
+
+    <!-- <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="exstension" nzRequired>
+      <span>Extension</span>
+    </nz-form-label> -->
+    <nz-select
+      style="width: 260px;"
+      nzShowSearchselectedType
+      nzAllowClear
+      nzPlaceHolder="Choose extension"
+      [(ngModel)]="extension">  
+    
+      <nz-option nzLabel=".cer" nzValue="cer"></nz-option>
+      <nz-option nzLabel=".pem" nzValue="pem"></nz-option>
+    </nz-select>
+    
+    <br/>
+    <br/>
+
+    <!-- <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="certificationType" nzRequired>
+      <span>Type</span>
+    </nz-form-label> -->
+    <nz-select
+      style="width: 260px;"
+      nzShowSearchselectedType
+      nzAllowClear
+      nzPlaceHolder="Choose certificate type"
+      [(ngModel)]="certificateType">  
+    
+      <nz-option nzLabel="Certification authority" nzValue="certificationAuthority"></nz-option>
+      <nz-option nzLabel="End user" nzValue="endUser"></nz-option>
+    </nz-select>
+    <button (click)="setupVisibility()" style="margin-left: 2%;" nz-button nzType="primary">Confirm type</button>
+    
+    <br/>
+    <br/>
+
+    <!-- <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="issuer" nzRequired>
+      <span>Issuer</span>
+    </nz-form-label> -->
+    <nz-select
+      style="width: 260px;"
+      nzShowSearchselectedType
+      nzAllowClear
+      nzPlaceHolder="Choose issuer"
+      [(ngModel)]="issuer"
+      *ngIf="isVisible">  
+    
+      <nz-option nzLabel="Pera" nzValue="pera"></nz-option>
+      <nz-option nzLabel="Mare" nzValue="mare"></nz-option>
+    </nz-select>
+    
+    <br/>
+    <br/>
+
+    <button (click)="create()" nz-button nzType="primary" [disabled]="!validateForm.valid">Create</button>
+
   </div>
+</div>
