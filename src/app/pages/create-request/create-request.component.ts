@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserCertificateService } from 'src/app/services/user-certificate.service';
+import { CertificateRequestService } from 'src/app/services/certificate-request.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-request',
@@ -15,7 +16,7 @@ export class CreateRequestComponent implements OnInit {
   public issuer: any = null;
   public isVisible: boolean = false;
 
-  constructor(private ucService: UserCertificateService, private fb: FormBuilder) { }
+  constructor(private crService: CertificateRequestService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.setupForm();
@@ -46,7 +47,7 @@ export class CreateRequestComponent implements OnInit {
         certificateType: this.isVisible,
         issuerEmail: this.issuer
       }
-      this.ucService.createRequest(body).subscribe(data => {
+      this.crService.createRequest(body).subscribe(data => {
         console.log(body)
       }) 
     }
@@ -58,5 +59,9 @@ export class CreateRequestComponent implements OnInit {
     }else{
       this.isVisible = false;
     }
+  }
+
+  public login(): void {
+    this.router.navigateByUrl('login');
   }
 }
