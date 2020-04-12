@@ -7,10 +7,12 @@
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
         <li routerLink="" nz-menu-item style="font-style:oblique;">Certificate requests</li>
-        <li nz-menu-item style="font-style:oblique;">Valid certificates</li>
-         <li routerLink="" nz-menu-item style="font-style:oblique;">Revoked certificates</li>
+        <li nz-menu-item style="font-style:oblique;">Root certificates</li>
+        <li nz-menu-item style="font-style:oblique;">CA certificates</li>
+        <li nz-menu-item style="font-style:oblique;">End user certificates</li>
+        <li routerLink="" nz-menu-item style="font-style:oblique;">Revoked certificates</li>
         <li nz-menu-item nzMatchRouter>
-            <a (click)="clearStorage()" style="font-style:oblique;">Logout</a>
+            <a (click)="clearStorage()" style="font-style:oblique;">Log out</a>
         </li>
       </ul>
     </nz-header>
