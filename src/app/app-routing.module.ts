@@ -4,6 +4,7 @@ import { CreateRequestComponent } from './pages/create-request/create-request.co
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
 
 
 
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard', component: DashboardComponent, children: [
-      //{ path: '', component: }
+      { path: 'ca-certificates', component: CACertificatesComponent}
     ]
   }
 ];
