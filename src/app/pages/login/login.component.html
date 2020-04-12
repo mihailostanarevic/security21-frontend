@@ -1,0 +1,30 @@
+<div class="wallpaper" style="background-image: url(https://scontent.fbeg1-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/91286245_852162361965253_604878145719369728_n.jpg?_nc_cat=109&_nc_sid=b96e70&_nc_eui2=AeEcrFnfA432yxDHdcSkx8oKlyjMTEmB7KxloOH1WEqUTYCcTCpR4k5aG-93m7fDPOVcjlt189nPv3FAWdweh19EaZ47kgSwEkvX65_UZMSZ-w&_nc_ohc=96K_ZmKDTXwAX_8Nq14&_nc_ht=scontent.fbeg1-1.fna&_nc_tp=7&oh=3b410974287c7474909c69a10b34ea4b&oe=5EADA064);">
+    <div class="logo">
+        <a>
+          <h2 style="color:#001529; font-style: italic;">Login if you are admin!</h2>
+        </a>
+    </div>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="email" placeholder="Email" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">Please enter your email address!</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">Please enter your password!</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="default" nzGhost class="login-form-button" [disabled]="!validateForm.valid">Login</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>

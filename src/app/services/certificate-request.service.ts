@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserCertificateService {
+export class CertificateRequestService {
 
   private baseUrl = environment.baseUrl;
 
@@ -14,6 +14,6 @@ export class UserCertificateService {
 
 
   public createRequest(body): Observable<any> {
-    return this.http.post(`${this.baseUrl}user-certificate`, body);
+    return this.http.post(`${this.baseUrl}certificate-requests`, body);
   }
 }
