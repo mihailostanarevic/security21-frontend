@@ -16,6 +16,7 @@ import { CreateRequestComponent } from './pages/create-request/create-request.co
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ValidCertificatesComponent } from './pages/lists/valid-certificates/valid-certificates.component';
 
 registerLocaleData(en);
 
@@ -30,7 +31,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     AppComponent,
     CreateRequestComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    ValidCertificatesComponent
   ],
   imports: [
     BrowserModule,
