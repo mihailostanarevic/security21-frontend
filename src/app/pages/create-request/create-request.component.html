@@ -68,16 +68,6 @@
         </nz-form-control>
       </nz-form-item>
 
-      <nz-form-item>
-        
-        <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="serialNumber" formControlName="serialNumber" placeholder="Serial number" />
-          <nz-form-explain *ngIf="validateForm.get('serialNumber')?.dirty && validateForm.get('serialNumber')?.errors"
-            >Please enter serial number!</nz-form-explain
-          >
-        </nz-form-control>
-      </nz-form-item>
-
 
       <!-- <nz-form-item nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
@@ -115,23 +105,6 @@
     
       <nz-option nzLabel="Certification authority" nzValue="certificationAuthority"></nz-option>
       <nz-option nzLabel="End user" nzValue="endUser"></nz-option>
-    </nz-select>
-    
-    <br/>
-    <br/>
-
-    <!-- <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="issuer" nzRequired>
-      <span>Issuer</span>
-    </nz-form-label> -->
-    <nz-select
-      style="width: 260px;"
-      nzShowSearchselectedType
-      nzAllowClear
-      nzPlaceHolder="Choose issuer"
-      [(ngModel)]="issuer">  
-    
-      <nz-option nzLabel="Pera" nzValue="pera"></nz-option>
-      <nz-option nzLabel="Mare" nzValue="mare"></nz-option>
     </nz-select>
     
     <br/>
