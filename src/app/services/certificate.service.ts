@@ -16,4 +16,8 @@ export class CertificateService {
     return this.http.get(`${this.baseUrl}certificate/ca`);
   }
 
+  public downloadCertificate(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate/download`, body);
+  }
+
 }

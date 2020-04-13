@@ -14,6 +14,7 @@
            Issuer email
         </th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,9 @@
         <td>{{ data.caemail }}</td>
         <td>
           <button (click)="revoke(data.email)" nz-button nzType="danger">Revoke</button>
+        </td>
+        <td>
+          <button (click)="download(data.email)" nz-button nzType="primary">Download</button>
         </td>
       </tr>
     </tbody>
