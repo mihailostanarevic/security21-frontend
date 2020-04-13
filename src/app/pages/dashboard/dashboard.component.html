@@ -8,7 +8,7 @@
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
         <li routerLink="" nz-menu-item style="font-style:oblique;">Certificate requests</li>
         <li routerLink="ca-certificates" nz-menu-item style="font-style:oblique;">CA certificates</li>
-        <li nz-menu-item style="font-style:oblique;">End user certificates</li>
+        <li routerLink="end-user-certificates" nz-menu-item style="font-style:oblique;">End user certificates</li>
         <li routerLink="" nz-menu-item style="font-style:oblique;">Revoked certificates</li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="clearStorage()" style="font-style:oblique;">Log out</a>
@@ -16,6 +16,14 @@
       </ul>
     </nz-header>
     <nz-layout>
+      <nz-sider [nzWidth]="200" >
+        <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" style="height:100%">
+
+
+        </ul>
+
+      </nz-sider>
+
       <nz-content style="min-height: 100%;">
         <div class="inner-content">
           <router-outlet></router-outlet>

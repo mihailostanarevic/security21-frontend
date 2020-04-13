@@ -1,26 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { CertificateService } from 'src/app/services/certificate.service';
-import * as moment from 'moment';
 import { EndUserCertificateService } from './../../../services/end-user-certificate.service';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'app-ca-certificates',
-  templateUrl: './ca-certificates.component.html',
-  styleUrls: ['./ca-certificates.component.css']
+  selector: 'app-end-user-certificates',
+  templateUrl: './end-user-certificates.component.html',
+  styleUrls: ['./end-user-certificates.component.css']
 })
-export class CACertificatesComponent implements OnInit {
-
+export class EndUserCertificatesComponent implements OnInit {
   public listOfData = [];
 
-  constructor(private certificateService: CertificateService,
-              private endUserCertificateService: EndUserCertificateService) { }
+  constructor(private endUserCertificateService: EndUserCertificateService) { }
 
   ngOnInit(): void {
     this.setupData();
   }
 
   private setupData(): void {
-    this.certificateService.getAllValidCACertificates().subscribe(data => {
+    this.endUserCertificateService.getAllValidEndUserCertificates().subscribe(data => {
       this.listOfData = data;
     });
   }
@@ -30,7 +27,6 @@ export class CACertificatesComponent implements OnInit {
       "email" : email
     }
     this.endUserCertificateService.revokeCertificate(body).subscribe();
-
   }
 
   public nameAndSurname(name, surname): String {

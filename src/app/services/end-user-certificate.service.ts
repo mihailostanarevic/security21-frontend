@@ -6,13 +6,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-
+export class EndUserCertificateService {
   private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  public login(body): Observable<any> {
-    return this.http.post(`${this.baseUrl}login`, body);
+  public getAllValidEndUserCertificates(): Observable<any> {
+    return this.http.get(`${this.baseUrl}certificate/end-user`);
+  }
+
+  public revokeCertificate( mailCertificate ): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate/revoke`, mailCertificate);
   }
 }

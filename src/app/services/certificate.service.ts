@@ -12,8 +12,8 @@ export class CertificateService {
 
   constructor(private http: HttpClient) { }
 
-
   public getAllValidCACertificates(): Observable<any> {
     return this.http.get(`${this.baseUrl}certificate/ca`);
   }
+
 }
