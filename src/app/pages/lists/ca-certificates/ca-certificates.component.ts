@@ -33,6 +33,14 @@ export class CACertificatesComponent implements OnInit {
 
   }
 
+  public download(email): void {
+    const body = {
+      "email" : email
+    }
+    this.certificateService.downloadCertificate(body).subscribe();
+
+  }
+
   public nameAndSurname(name, surname): String {
     return name + " " + surname;
   }
