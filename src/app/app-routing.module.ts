@@ -5,8 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
-
-
+import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/create-request' },
@@ -14,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard', component: DashboardComponent, children: [
-      { path: 'ca-certificates', component: CACertificatesComponent}
+      { path: 'ca-certificates', component: CACertificatesComponent},
+      { path: 'end-user-certificates', component: EndUserCertificatesComponent}
     ]
   }
 ];
