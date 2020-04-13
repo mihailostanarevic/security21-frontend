@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
 import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
+import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/create-request' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard', component: DashboardComponent, children: [
+      { path: 'certificate-requests', component: CertificateRequestComponent},
       { path: 'ca-certificates', component: CACertificatesComponent},
       { path: 'end-user-certificates', component: EndUserCertificatesComponent}
     ]

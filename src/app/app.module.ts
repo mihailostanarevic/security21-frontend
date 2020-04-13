@@ -18,6 +18,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
 import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
+import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 
 registerLocaleData(en);
 
@@ -34,7 +35,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     DashboardComponent,
     LoginComponent,
     CACertificatesComponent,
-    EndUserCertificatesComponent
+    EndUserCertificatesComponent,
+    CertificateRequestComponent
   ],
   imports: [
     BrowserModule,
