@@ -16,4 +16,12 @@ export class CertificateRequestService {
   public createRequest(body): Observable<any> {
     return this.http.post(`${this.baseUrl}certificate-requests`, body);
   }
+
+  public getIssuersExpirationDate(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate-requests/issuer`, body);
+  }
+
+  public approveCertificateRequest(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate-requests/approve`, body);
+  }
 }

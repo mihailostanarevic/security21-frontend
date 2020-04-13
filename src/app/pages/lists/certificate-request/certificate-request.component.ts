@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListOfRequestsService } from './../../../services/list-of-requests.service';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-certificate-request',
@@ -10,7 +11,7 @@ import * as moment from 'moment';
 export class CertificateRequestComponent implements OnInit {
   public listOfData = [];
 
-  constructor(private listOfRequestsService: ListOfRequestsService) { }
+  constructor(private listOfRequestsService: ListOfRequestsService, private router: Router) { }
 
   ngOnInit(): void {
     this.setupData();
@@ -24,7 +25,8 @@ export class CertificateRequestComponent implements OnInit {
   }
 
   public approve(data): void {
-    // approve stranica
+    this.router.navigateByUrl('dashboard/approve');
+    localStorage.setItem('dataToApprove', JSON.stringify(data));
   }
 
   public deny(id): void {

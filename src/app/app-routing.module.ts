@@ -8,6 +8,7 @@ import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certif
 import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
 import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates/revoked-certificates.component';
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
+import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/create-request' },
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'certificate-requests', component: CertificateRequestComponent},
       { path: 'ca-certificates', component: CACertificatesComponent},
       { path: 'end-user-certificates', component: EndUserCertificatesComponent},
-      { path: 'revoked-certificates', component: RevokedCertificatesComponent}
+      { path: 'revoked-certificates', component: RevokedCertificatesComponent},
+      { path: 'approve', component: ApproveRequestComponent}
     ]
   }
 ];
