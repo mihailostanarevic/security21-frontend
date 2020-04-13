@@ -1,0 +1,23 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Serial number
+        </th>
+        <th>
+            Owner email
+        </th>
+        <th>
+            Issuer email
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.serialNum }}</td>
+        <td>{{ data.subject }}</td>
+        <td>{{ data.issuer }}</td>
+      </tr>
+    </tbody>
+  </nz-table>

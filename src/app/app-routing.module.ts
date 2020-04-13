@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
 import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
+import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates/revoked-certificates.component';
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent, children: [
       { path: 'certificate-requests', component: CertificateRequestComponent},
       { path: 'ca-certificates', component: CACertificatesComponent},
-      { path: 'end-user-certificates', component: EndUserCertificatesComponent}
+      { path: 'end-user-certificates', component: EndUserCertificatesComponent},
+      { path: 'revoked-certificates', component: RevokedCertificatesComponent}
     ]
   }
 ];
