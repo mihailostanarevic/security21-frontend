@@ -14,4 +14,8 @@ export class EndUserCertificateService {
   public getAllValidEndUserCertificates(): Observable<any> {
     return this.http.get(`${this.baseUrl}certificate/end-user`);
   }
+
+  public revokeCertificate( mailCertificate ): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate/revoke`, mailCertificate);
+  }
 }

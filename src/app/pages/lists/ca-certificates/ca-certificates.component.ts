@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CertificateService } from 'src/app/services/certificate.service';
 import * as moment from 'moment';
+import { EndUserCertificateService } from './../../../services/end-user-certificate.service';
 
 @Component({
   selector: 'app-ca-certificates',
@@ -11,7 +12,8 @@ export class CACertificatesComponent implements OnInit {
 
   public listOfData = [];
 
-  constructor(private certificateService: CertificateService) { }
+  constructor(private certificateService: CertificateService,
+              private endUserCertificateService: EndUserCertificateService) { }
 
   ngOnInit(): void {
     this.setupData();
@@ -23,7 +25,11 @@ export class CACertificatesComponent implements OnInit {
     });
   }
 
-  public revoke(id): void {
+  public revoke(email): void {
+    const body = {
+      "email" : email
+    }
+    this.endUserCertificateService.revokeCertificate(body).subscribe();
 
   }
 

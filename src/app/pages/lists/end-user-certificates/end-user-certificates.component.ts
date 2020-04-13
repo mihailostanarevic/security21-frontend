@@ -19,12 +19,14 @@ export class EndUserCertificatesComponent implements OnInit {
   private setupData(): void {
     this.endUserCertificateService.getAllValidEndUserCertificates().subscribe(data => {
       this.listOfData = data;
-      console.log(this.listOfData);
     });
   }
 
-  public revoke(id): void {
-
+  public revoke(email): void {
+    const body = {
+      "email" : email
+    }
+    this.endUserCertificateService.revokeCertificate(body).subscribe();
   }
 
   public nameAndSurname(name, surname): String {

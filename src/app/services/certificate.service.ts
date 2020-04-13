@@ -15,4 +15,5 @@ export class CertificateService {
   public getAllValidCACertificates(): Observable<any> {
     return this.http.get(`${this.baseUrl}certificate/ca`);
   }
+
 }
