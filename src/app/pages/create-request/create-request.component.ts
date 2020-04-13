@@ -13,7 +13,6 @@ export class CreateRequestComponent implements OnInit {
   public validateForm: FormGroup;
   public certificateType: any = null;
   public extension: any = null;
-  public issuer: any = null;
   public isVisible: boolean = false;
 
   constructor(private crService: CertificateRequestService, private fb: FormBuilder, private router: Router) { }
@@ -29,8 +28,7 @@ export class CreateRequestComponent implements OnInit {
       email: [ null, [Validators.required, Validators.email]],
       country: [ null, [Validators.required]],
       organisation: [ null, [Validators.required]],
-      organisationUnit: [ null, [Validators.required]],
-      serialNumber: [ null, [Validators.required]]
+      organisationUnit: [ null, [Validators.required]]
     });
   }
 
@@ -44,8 +42,7 @@ export class CreateRequestComponent implements OnInit {
       const body = {
         ...this.validateForm.value,
         extension: this.extension,
-        certificateType: this.isVisible,
-        issuerEmail: this.issuer
+        certificateType: this.isVisible
       }
       this.crService.createRequest(body).subscribe(data => {
         console.log(body)
