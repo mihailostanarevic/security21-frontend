@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { CertificateService } from 'src/app/services/certificate.service';
 import * as moment from 'moment';
 import { EndUserCertificateService } from './../../../services/end-user-certificate.service';
+import { DomSanitizer } from '@angular/platform-browser';
+declare var require: any
+const FileSaver = require('file-saver');
 
 @Component({
   selector: 'app-ca-certificates',
@@ -13,7 +16,7 @@ export class CACertificatesComponent implements OnInit {
   public listOfData = [];
 
   constructor(private certificateService: CertificateService,
-              private endUserCertificateService: EndUserCertificateService) { }
+              private endUserCertificateService: EndUserCertificateService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.setupData();
@@ -33,12 +36,24 @@ export class CACertificatesComponent implements OnInit {
 
   }
 
-  public download(email): void {
+  public async download(email): Promise<any> {
     const body = {
       "email" : email
     }
-    this.certificateService.downloadCertificate(body).subscribe();
+    let name:String = '';
+    await this.certificateService.getFileName(body).subscribe(data => {
+      name = data[0];
+    })
+    this.certificateService.downloadCertificate(body).subscribe(data => {
+      this.downloadFile(data,name);
+    })
+  }
 
+  public downloadFile(data: any, name:String) {
+    const blob = new Blob([data], { type: 'application/octet-stream' });
+
+   let fileUrl:string = this.sanitizer.sanitize(SecurityContext.RESOURCE_URL, this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob)));
+   FileSaver.saveAs(fileUrl, name);
   }
 
   public nameAndSurname(name, surname): String {

@@ -101,8 +101,9 @@
       nzShowSearchselectedType
       nzAllowClear
       nzPlaceHolder="Choose certificate type"
-      [(ngModel)]="certificateType">  
-    
+      [(ngModel)]="certificateType"
+      (ngModelChange)="setupVisibility()">  
+
       <nz-option nzLabel="Certification authority" nzValue="certificationAuthority"></nz-option>
       <nz-option nzLabel="End user" nzValue="endUser"></nz-option>
     </nz-select>

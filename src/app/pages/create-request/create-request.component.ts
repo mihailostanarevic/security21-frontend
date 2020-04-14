@@ -42,7 +42,7 @@ export class CreateRequestComponent implements OnInit {
       const body = {
         ...this.validateForm.value,
         extension: this.extension,
-        certificateType: this.isVisible
+        certificateAuthority: this.isVisible
       }
       this.crService.createRequest(body).subscribe(data => {
         console.log(body)

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,8 +16,12 @@ export class CertificateService {
     return this.http.get(`${this.baseUrl}certificate/ca`);
   }
 
-  public downloadCertificate(body): Observable<any> {
-    return this.http.post(`${this.baseUrl}certificate/download`, body);
+  public downloadCertificate(body): Observable<Blob> {
+    return this.http.post(`${this.baseUrl}certificate/download`, body, {responseType: 'blob'});
   }
 
+  public getFileName(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}certificate/file-name`, body);
+  }
+  
 }
