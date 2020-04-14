@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { EndUserCertificateService } from './../../../services/end-user-certificate.service';
 import * as moment from 'moment';
 import { CertificateService } from './../../../services/certificate.service';
+import 'rxjs' ;
+import {DomSanitizer} from '@angular/platform-browser';
+declare var require: any
+const FileSaver = require('file-saver');
 
 @Component({
   selector: 'app-end-user-certificates',
@@ -11,7 +15,7 @@ import { CertificateService } from './../../../services/certificate.service';
 export class EndUserCertificatesComponent implements OnInit {
   public listOfData = [];
 
-  constructor(private endUserCertificateService: EndUserCertificateService, private certificateService: CertificateService) { }
+  constructor(private endUserCertificateService: EndUserCertificateService, private certificateService: CertificateService, private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
     this.setupData();
@@ -30,25 +34,25 @@ export class EndUserCertificatesComponent implements OnInit {
     this.endUserCertificateService.revokeCertificate(body).subscribe();
   }
 
-  public download(email): void {
+  public async download(email): Promise<any> {
     const body = {
       "email" : email
     }
+    let name:String = '';
+    await this.certificateService.getFileName(body).subscribe(data => {
+      name = data[0];
+    })
     this.certificateService.downloadCertificate(body).subscribe(data => {
-      console.log(data);
+      this.downloadFile(data,name);
     })
   }
-  /*
-  this.downloadFile(data)),
-    error => console.log('Error downloading the file.'),
-    () => console.info('OK');*/ 
 
+  public downloadFile(data: any, name:String) {
+    const blob = new Blob([data], { type: 'application/octet-stream' });
 
-  /*downloadFile(data: any) {
-    const blob = new Blob([data], { type: 'text/plain' });
-    const url= window.URL.createObjectURL(blob);
-    window.open(url);
-  }*/
+   let fileUrl:string = this.sanitizer.sanitize(SecurityContext.RESOURCE_URL, this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob)));
+   FileSaver.saveAs(fileUrl, name);
+  }
 
   public nameAndSurname(name, surname): String {
     return name + " " + surname;

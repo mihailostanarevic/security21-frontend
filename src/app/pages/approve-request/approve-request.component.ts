@@ -71,7 +71,7 @@ export class ApproveRequestComponent implements OnInit {
       date = date.replace(/-/g,'/');
       const body = {
         ...this.data,
-        certificateAuthority: this.data.caOrEnd === 'End user' ? false : true,
+        certificateAuthority: this.data.caOrEnd == 'End user' ? false : true,
         issuerEmail: this.selectedIssuer,
         endDate: date
       }
