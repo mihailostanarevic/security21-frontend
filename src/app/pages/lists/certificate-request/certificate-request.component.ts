@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListOfRequestsService } from './../../../services/list-of-requests.service';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-certificate-request',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class CertificateRequestComponent implements OnInit {
   public listOfData = [];
 
-  constructor(private listOfRequestsService: ListOfRequestsService, private router: Router) { }
+  constructor(private listOfRequestsService: ListOfRequestsService, private router: Router, private message: NzMessageService) { }
 
   ngOnInit(): void {
     this.setupData();
@@ -20,7 +21,9 @@ export class CertificateRequestComponent implements OnInit {
   private setupData(): void {
     this.listOfRequestsService.getAllRequests().subscribe(data => {
       this.listOfData = data;
-      console.log(data);
+    }, error => {
+      this.message.info(error.error.message);
+      this.router.navigateByUrl('dashboard');
     });
   }
 
@@ -34,7 +37,8 @@ export class CertificateRequestComponent implements OnInit {
       "uuid" : id
     }
     this.listOfRequestsService.denyRequest(body).subscribe();
-    alert('Successfully denied!');
+    this.message.info('Successfully denied!');
+    this.setupData();
   }
 
   public nameAndSurname(name, surname): String {

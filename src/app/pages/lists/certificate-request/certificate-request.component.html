@@ -17,6 +17,7 @@
           Certificate type
       </th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -27,8 +28,9 @@
       <td>{{ data.organisation }}</td>
       <td>{{ data.caOrEnd }}</td>
       <td>
-        <button (click)="approve(data)" nz-button
-        nzType="success">Approve</button>
+        <button (click)="approve(data)" nz-button nzType="primary">Approve</button>
+      </td>
+      <td>
         <button (click)="deny(data.id)" nz-button nzType="danger">Deny</button>
       </td>
     </tr>

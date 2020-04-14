@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CertificateRequestService } from 'src/app/services/certificate-request.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-create-request',
@@ -15,7 +16,7 @@ export class CreateRequestComponent implements OnInit {
   public extension: any = null;
   public isVisible: boolean = false;
 
-  constructor(private crService: CertificateRequestService, private fb: FormBuilder, private router: Router) { }
+  constructor(private message: NzMessageService, private crService: CertificateRequestService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.setupForm();
@@ -45,7 +46,10 @@ export class CreateRequestComponent implements OnInit {
         certificateAuthority: this.isVisible
       }
       this.crService.createRequest(body).subscribe(data => {
-        console.log(body)
+        this.message.info('You have successfully created a certification request!');
+        this.setupForm();
+        this.extension = null;
+        this.certificateType = null;
       }) 
     }
   }

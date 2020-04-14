@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CertificateRequestService } from 'src/app/services/certificate-request.service';
 import { CertificateService } from 'src/app/services/certificate.service';
 import { Observable } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-approve-request',
@@ -19,7 +20,7 @@ export class ApproveRequestComponent implements OnInit {
   public validateForm: FormGroup;
   public data: any;
   
-  constructor(private crqService: CertificateRequestService, private crService: CertificateService, private fb: FormBuilder, private router: Router) { }
+  constructor(private message: NzMessageService, private crqService: CertificateRequestService, private crService: CertificateService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.crService.getAllValidCACertificates().subscribe(data1 => {
@@ -78,7 +79,8 @@ export class ApproveRequestComponent implements OnInit {
       delete(body.id);
       delete(body.caOrEnd);
       this.crqService.approveCertificateRequest(body).subscribe(data => {
-        console.log(body)
+        this.message.info('Successfully approved!');
+        this.router.navigateByUrl('dashboard/certificate-requests');
       })
     }
   }

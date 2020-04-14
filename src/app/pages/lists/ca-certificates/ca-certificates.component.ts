@@ -3,6 +3,8 @@ import { CertificateService } from 'src/app/services/certificate.service';
 import * as moment from 'moment';
 import { EndUserCertificateService } from './../../../services/end-user-certificate.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NzMessageService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 declare var require: any
 const FileSaver = require('file-saver');
 
@@ -15,7 +17,7 @@ export class CACertificatesComponent implements OnInit {
 
   public listOfData = [];
 
-  constructor(private certificateService: CertificateService,
+  constructor(private certificateService: CertificateService, private message: NzMessageService, private router: Router, 
               private endUserCertificateService: EndUserCertificateService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
@@ -25,6 +27,9 @@ export class CACertificatesComponent implements OnInit {
   private setupData(): void {
     this.certificateService.getAllValidCACertificates().subscribe(data => {
       this.listOfData = data;
+    }, error => {
+      this.message.info(error.error.message);
+      this.router.navigateByUrl('dashboard');
     });
   }
 
@@ -32,7 +37,10 @@ export class CACertificatesComponent implements OnInit {
     const body = {
       "email" : email
     }
-    this.endUserCertificateService.revokeCertificate(body).subscribe();
+    this.endUserCertificateService.revokeCertificate(body).subscribe(() => {
+      this.message.info('Successfully revoked!');
+      this.setupData();
+      });
 
   }
 
@@ -46,6 +54,7 @@ export class CACertificatesComponent implements OnInit {
     })
     this.certificateService.downloadCertificate(body).subscribe(data => {
       this.downloadFile(data,name);
+      this.message.info('Successfully downloaded!');
     })
   }
 

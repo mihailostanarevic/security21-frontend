@@ -4,6 +4,8 @@ import * as moment from 'moment';
 import { CertificateService } from './../../../services/certificate.service';
 import 'rxjs' ;
 import {DomSanitizer} from '@angular/platform-browser';
+import { NzMessageService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 declare var require: any
 const FileSaver = require('file-saver');
 
@@ -15,7 +17,7 @@ const FileSaver = require('file-saver');
 export class EndUserCertificatesComponent implements OnInit {
   public listOfData = [];
 
-  constructor(private endUserCertificateService: EndUserCertificateService, private certificateService: CertificateService, private sanitizer:DomSanitizer) { }
+  constructor(private router: Router, private message: NzMessageService, private endUserCertificateService: EndUserCertificateService, private certificateService: CertificateService, private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
     this.setupData();
@@ -24,6 +26,9 @@ export class EndUserCertificatesComponent implements OnInit {
   private setupData(): void {
     this.endUserCertificateService.getAllValidEndUserCertificates().subscribe(data => {
       this.listOfData = data;
+    }, error => {
+      this.message.info(error.error.message);
+      this.router.navigateByUrl('dashboard');
     });
   }
 
@@ -31,7 +36,10 @@ export class EndUserCertificatesComponent implements OnInit {
     const body = {
       "email" : email
     }
-    this.endUserCertificateService.revokeCertificate(body).subscribe();
+    this.endUserCertificateService.revokeCertificate(body).subscribe(() => {
+      this.message.info('Successfully revoked!');
+      this.setupData();
+    });
   }
 
   public async download(email): Promise<any> {
@@ -44,6 +52,7 @@ export class EndUserCertificatesComponent implements OnInit {
     })
     this.certificateService.downloadCertificate(body).subscribe(data => {
       this.downloadFile(data,name);
+      this.message.info('Successfully downoladed!');
     })
   }
 
