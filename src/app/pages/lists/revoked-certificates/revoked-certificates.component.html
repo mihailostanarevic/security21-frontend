@@ -1,3 +1,23 @@
+<div id="main_id">
+Check certificate status:
+<nz-input-group
+  style="width: 200px;"
+[nzSuffix]="inputClearTpl">
+  <input type="text"
+  nz-input [(ngModel)]="inputValue"
+  placeholder="Input serial number"/>
+</nz-input-group>
+<ng-template #inputClearTpl
+  ><i nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle" *ngIf="inputValue" (click)="inputValue = null"></i
+></ng-template>
+<button
+  nz-button
+  nzType="primary"
+  (click)="onCheckClick()">Check</button>
+</div>
+
+<hr>
+
 <nz-table #nzTable [nzData]="listOfData">
     <thead>
       <tr>

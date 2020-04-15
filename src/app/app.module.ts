@@ -22,7 +22,6 @@ import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
 
-
 registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
