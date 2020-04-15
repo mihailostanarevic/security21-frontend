@@ -50,7 +50,10 @@ export class CreateRequestComponent implements OnInit {
         this.setupForm();
         this.extension = null;
         this.certificateType = null;
-      }) 
+      },
+      error => {
+        this.message.info(error.error.message);
+      });
     }
   }
 
