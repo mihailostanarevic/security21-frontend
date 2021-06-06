@@ -11,7 +11,7 @@ import { CertificateRequestComponent } from './pages/lists/certificate-request/c
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/create-request' },
+  { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'create-request', component: CreateRequestComponent },
   { path: 'login', component: LoginComponent },
   {
