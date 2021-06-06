@@ -12,6 +12,6 @@ export class CheckCertificateStatusService {
   constructor(private http: HttpClient) { }
 
   public checkStatus(serialNumber: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}ocspList/`+ serialNumber +`/check`);
+    return this.http.get(`${this.baseUrl}ocsp/`+ serialNumber +`/check`);
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CertificateRequestService } from 'src/app/services/certificate-request.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
+import { CertificateRequestService } from 'src/app/services/certificate-request.service';
 
 @Component({
   selector: 'app-create-request',
@@ -10,11 +10,11 @@ import { NzMessageService } from 'ng-zorro-antd';
   styleUrls: ['./create-request.component.css']
 })
 export class CreateRequestComponent implements OnInit {
-
   public validateForm: FormGroup;
   public certificateType: any = null;
   public extension: any = null;
   public isVisible: boolean = false;
+  public isRoot: boolean = false;
 
   constructor(private message: NzMessageService, private crService: CertificateRequestService, private fb: FormBuilder, private router: Router) { }
 
@@ -43,7 +43,8 @@ export class CreateRequestComponent implements OnInit {
       const body = {
         ...this.validateForm.value,
         extension: this.extension,
-        certificateAuthority: this.isVisible
+        certificateAuthority: this.isVisible,
+        rootCert: this.isRoot
       }
       this.crService.createRequest(body).subscribe(data => {
         this.message.info('You have successfully created a certification request!');
@@ -60,8 +61,13 @@ export class CreateRequestComponent implements OnInit {
   public setupVisibility(): void {
     if(this.certificateType == "certificationAuthority"){
       this.isVisible = true;
-    }else{
-      this.isVisible = false;
+      this.isRoot = false;
+    }else if(this.certificateType == "endUser") {
+        this.isVisible = false;
+        this.isRoot = false;
+    } else if(this.certificateType == "rootCA") {
+        this.isRoot = true;
+        this.isVisible = true;
     }
   }
 

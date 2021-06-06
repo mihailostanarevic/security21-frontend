@@ -12,10 +12,10 @@ export class EndUserCertificateService {
   constructor(private http: HttpClient) { }
 
   public getAllValidEndUserCertificates(): Observable<any> {
-    return this.http.get(`${this.baseUrl}certificate/end-user`);
+    return this.http.get(`${this.baseUrl}certificates/end-user`);
   }
 
   public revokeCertificate( mailCertificate ): Observable<any> {
-    return this.http.post(`${this.baseUrl}certificate/revoke`, mailCertificate);
+    return this.http.post(`${this.baseUrl}certificates/revoke`, mailCertificate);
   }
 }

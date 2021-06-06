@@ -74,6 +74,7 @@ export class ApproveRequestComponent implements OnInit {
         ...this.data,
         certificateAuthority: this.data.caOrEnd == 'End user' ? false : true,
         issuerEmail: this.selectedIssuer,
+        rootCert: this.data.rootCert,
         endDate: date
       }
       delete(body.id);

@@ -1,7 +1,7 @@
 <div class="pictureWrapper">
   <div class="logo">
     <a>
-      <h1 style="color: white; font-style: oblique;">Create form</h1>
+      <h1 style="color: white; font-style: oblique;">Create certificate form</h1>
     </a>
   </div>
   <div class="profileWrapper">
@@ -104,6 +104,7 @@
       [(ngModel)]="certificateType"
       (ngModelChange)="setupVisibility()">  
 
+      <nz-option nzLabel="Root CA" nzValue="rootCA"></nz-option>
       <nz-option nzLabel="Certification authority" nzValue="certificationAuthority"></nz-option>
       <nz-option nzLabel="End user" nzValue="endUser"></nz-option>
     </nz-select>

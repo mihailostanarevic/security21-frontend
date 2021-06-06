@@ -1,14 +1,20 @@
 .profileWrapper{
     width: 380px;
-    margin-left: 2%;
+    margin-left: 10%;
     margin-bottom: auto;
     margin-right: auto;
 }
 
+.logo h1 {
+    margin-top: 10%;
+    margin-left: 100px;
+}
+
 .pictureWrapper {
-    background-image: url("https://scontent.fbeg2-1.fna.fbcdn.net/v/t1.15752-9/92731052_1628687480633692_6957363380432666624_n.jpg?_nc_cat=110&_nc_sid=b96e70&_nc_eui2=AeF2Ef5glm8XeA7OXJVyeCPfOklNW_MESbU6SU1b8wRJtaTS6dqjQGfqlj15lU3kb2O_yXBmurkVmsG5aYKtcFNa&_nc_ohc=i0jAcQXiF5UAX9EEE_j&_nc_ht=scontent.fbeg2-1.fna&oh=3e374aec0d466fd6a1bbd09d588da48e&oe=5EB504A7");
+    background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/31/67/NG82fm.jpg");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     margin-top: 0 auto;
     height: 100%;
     width: 100%;

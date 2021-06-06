@@ -13,15 +13,15 @@ export class CertificateService {
   constructor(private http: HttpClient) { }
 
   public getAllValidCACertificates(): Observable<any> {
-    return this.http.get(`${this.baseUrl}certificate/ca`);
+    return this.http.get(`${this.baseUrl}certificates/ca`);
   }
 
   public downloadCertificate(body): Observable<Blob> {
-    return this.http.post(`${this.baseUrl}certificate/download`, body, {responseType: 'blob'});
+    return this.http.post(`${this.baseUrl}certificates/download`, body, {responseType: 'blob'});
   }
 
   public getFileName(body): Observable<any> {
-    return this.http.post(`${this.baseUrl}certificate/file-name`, body);
+    return this.http.post(`${this.baseUrl}certificates/file-name`, body);
   }
   
 }

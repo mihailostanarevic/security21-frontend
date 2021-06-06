@@ -13,7 +13,7 @@ export class RevokedCertificateService {
   constructor(private http: HttpClient) { }
 
   public getAllRevokeCertificates(): Observable<any> {
-    return this.http.get(`${this.baseUrl}certificate/revoke`);
+    return this.http.get(`${this.baseUrl}certificates/revoke`);
   }
 
 }
