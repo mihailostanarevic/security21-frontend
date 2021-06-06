@@ -1,13 +1,14 @@
 .logo {
-    line-height: 64px;
-    margin: 0px 112px 4px -25px;
-    float: left;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+    padding: 3%;
+    color: white;
   }
-
   
 .inner-content {
   padding: 24px;
-  background-image: url("https://wallpapertag.com/wallpaper/full/e/e/6/457523-light-blue-wallpapers-2560x1600-for-tablet.jpg");
+  background-image: url("https://www.directderm.com/wp-content/uploads/2017/10/background-world-map-white.jpg");
   background-repeat: no-repeat;
   /* background-color: #EEF2FF; */
   height: 100%;
