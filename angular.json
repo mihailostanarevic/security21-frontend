@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "Busep"
+  "defaultProject": "Busep",
+  "cli": {
+    "analytics": false
+  }
 }
