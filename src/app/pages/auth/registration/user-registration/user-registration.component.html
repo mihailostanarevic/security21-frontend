@@ -2,7 +2,7 @@
     <h1>Registration form</h1>
     <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>First Name</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired></nz-form-label>
         <nz-form-control nzHasFeedback [nzSm]="12" [nzXs]="24" [nzErrorTip]="firstNameErrorTpl">
           <input nz-input id="firstName" formControlName="firstName" placeholder="First Name" #firstName/>
           <ng-template #firstNameErrorTpl let-control>
@@ -17,7 +17,7 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>Last Name</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired></nz-form-label>
       <nz-form-control nzHasFeedback [nzSm]="12" [nzXs]="24" [nzErrorTip]="lastNameErrorTpl">
           <input nz-input id="lastName" formControlName="lastName" placeholder="Last name" #lastName/>
           <ng-template #lastNameErrorTpl let-control>
@@ -32,7 +32,7 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired></nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
           <input nz-input formControlName="email" placeholder="E-mail" type="email" />
           <ng-template #emailErrorTpl let-control>
@@ -50,7 +50,7 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>Password</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired></nz-form-label>
         <nz-form-control [nzSpan]="12" [nzErrorTip]="passwordErrorTpl">
           <input nz-input (ngModelChange)="onPasswordChange($event)"
             type="password"
@@ -60,7 +60,7 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>Confirm Password</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired></nz-form-label>
         <nz-form-control [nzSpan]="12" [nzErrorTip]="passwordErrorTpl">
           <input nz-input (ngModelChange)="onPasswordConfirmChange($event)"
             type="password"

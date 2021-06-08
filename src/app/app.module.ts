@@ -15,14 +15,15 @@ import en from '@angular/common/locales/en';
 import { CreateRequestComponent } from './pages/create-request/create-request.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
 import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
 import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates/revoked-certificates.component';
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
-import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { UserRegistrationComponent } from './pages/auth/registration/user-registration/user-registration.component';
+import { UserRequestsComponent } from './pages/auth/registration/user-requests/user-requests.component';
 
 registerLocaleData(en);
 
@@ -43,7 +44,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     RevokedCertificatesComponent,
     CertificateRequestComponent,
     ApproveRequestComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    UserRequestsComponent
   ],
   imports: [
     BrowserModule,
