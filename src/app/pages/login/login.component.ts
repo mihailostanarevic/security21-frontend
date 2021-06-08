@@ -40,4 +40,8 @@ export class LoginComponent implements OnInit {
   public createRequest(): void{
     this.router.navigateByUrl('create-request');
   }
+  
+  public createAccount(): void{
+    this.router.navigateByUrl('registration');
+  }
 }

@@ -9,11 +9,13 @@ import { EndUserCertificatesComponent } from './pages/lists/end-user-certificate
 import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates/revoked-certificates.component';
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'create-request', component: CreateRequestComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registration', component: UserRegistrationComponent },
   {
     path: 'dashboard', component: DashboardComponent, children: [
       { path: 'certificate-requests', component: CertificateRequestComponent},

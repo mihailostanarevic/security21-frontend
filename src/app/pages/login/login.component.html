@@ -26,11 +26,16 @@
           <button nz-button nzType="default" nzGhost class="login-form-button" [disabled]="!validateForm.valid">Login</button>
         </nz-form-control>
       </nz-form-item>
-        <div style="float: right; margin-right: 16%;">
-            <a style="color: white;">or </a>
+        <div style="float: right; margin-right: 16%; margin-top: 10%;">
             <b><a 
                 (click)="createRequest()" 
-                style="color: white; font-style: oblique;">Create Certificate Request!</a></b>
+                style="color: white; font-style: oblique; margin-bottom: 5%;">Create Certificate Request!</a></b>
+            <br>
+            <br>
+            <a style="color: white;">or </a>
+            <b><a 
+                (click)="createAccount()" 
+                style="color: white; font-style: oblique;">Create Account!</a></b>
         </div>
     </form>
 </div>

@@ -22,6 +22,7 @@ import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
 registerLocaleData(en);
 
@@ -41,7 +42,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     EndUserCertificatesComponent,
     RevokedCertificatesComponent,
     CertificateRequestComponent,
-    ApproveRequestComponent
+    ApproveRequestComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
