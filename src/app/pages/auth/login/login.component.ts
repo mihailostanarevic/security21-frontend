@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('dashboard');
     },
     error => {
-      this.message.info(error);
+      this.message.info(error.error);
     });
   }
 
@@ -43,5 +43,9 @@ export class LoginComponent implements OnInit {
   
   public createAccount(): void{
     this.router.navigateByUrl('registration');
+  }
+
+  public forgotPassword(): void {
+    this.router.navigateByUrl('forgot-password');
   }
 }

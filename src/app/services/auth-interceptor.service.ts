@@ -8,7 +8,6 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     var user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
     if(user == null) {
       return next.handle(request);
     }
