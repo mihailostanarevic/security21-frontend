@@ -3,23 +3,27 @@ import { CommonModule } from '@angular/common';
 import { CreateRequestComponent } from './pages/create-request/create-request.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 import { CACertificatesComponent } from './pages/lists/ca-certificates/ca-certificates.component';
 import { EndUserCertificatesComponent } from './pages/lists/end-user-certificates/end-user-certificates.component';
 import { RevokedCertificatesComponent } from './pages/lists/revoked-certificates/revoked-certificates.component';
 import { CertificateRequestComponent } from './pages/lists/certificate-request/certificate-request.component';
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
+import { UserRegistrationComponent } from './pages/auth/registration/user-registration/user-registration.component';
+import { UserRequestsComponent } from './pages/auth/registration/user-requests/user-requests.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/create-request' },
+  { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'create-request', component: CreateRequestComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registration', component: UserRegistrationComponent },
   {
     path: 'dashboard', component: DashboardComponent, children: [
       { path: 'certificate-requests', component: CertificateRequestComponent},
       { path: 'ca-certificates', component: CACertificatesComponent},
       { path: 'end-user-certificates', component: EndUserCertificatesComponent},
       { path: 'revoked-certificates', component: RevokedCertificatesComponent},
+      { path: 'registration-request', component: UserRequestsComponent},
       { path: 'approve', component: ApproveRequestComponent}
     ]
   }

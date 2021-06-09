@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]]
     });
   }
@@ -28,14 +28,20 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
     this.loginService.login(this.validateForm.value).subscribe(data => {
-      const admin = data.admin;
-      localStorage.setItem('admin', JSON.stringify(admin));
+      const admin = data;
+      localStorage.setItem('user', JSON.stringify(admin));
       this.router.navigateByUrl('dashboard');
     },
     error => {
-      this.message.info(error.error.message);
+      this.message.info(error);
     });
   }
 
+  public createRequest(): void{
+    this.router.navigateByUrl('create-request');
+  }
   
+  public createAccount(): void{
+    this.router.navigateByUrl('registration');
+  }
 }

@@ -24,10 +24,11 @@
         <td>{{ formatDate(data.expireDate) }}</td>
         <td>{{ data.caemail }}</td>
         <td>
-          <button (click)="revoke(data.email)" nz-button nzType="danger">Revoke</button>
-        </td>
-        <td>
-          <button (click)="download(data.email)" nz-button nzType="primary">Download</button>
+          <button (click)="revoke(data.email)" 
+            style="margin-right: 10px;"
+            nz-button nzType="danger" nzGhost>Revoke</button>
+          <button (click)="download(data.email)" 
+            nz-button nzType="primary" nzGhost>Download</button>
         </td>
       </tr>
     </tbody>

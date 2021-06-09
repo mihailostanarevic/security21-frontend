@@ -1,16 +1,16 @@
 <div class="wallpaper">
     <div class="logo">
         <a>
-          <h2 style="color:white; font-style: italic;">Welcome to Certificate Service!</h2>
+          <h2 style="color:white; font-style: italic;">Welcome to Security System!</h2>
         </a>
     </div>
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
         <nz-form-control>
           <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="email" placeholder="Email" />
+            <input type="text" nz-input formControlName="username" placeholder="Email" />
           </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">Please enter your email address!</nz-form-explain>
+          <nz-form-explain *ngIf="validateForm.get('username')?.dirty && validateForm.get('username')?.errors">Please enter your email address!</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
@@ -26,5 +26,16 @@
           <button nz-button nzType="default" nzGhost class="login-form-button" [disabled]="!validateForm.valid">Login</button>
         </nz-form-control>
       </nz-form-item>
+        <div style="float: right; margin-right: 16%; margin-top: 10%;">
+            <b><a 
+                (click)="createRequest()" 
+                style="color: white; font-style: oblique; margin-bottom: 5%;">Create Certificate Request!</a></b>
+            <br>
+            <br>
+            <a style="color: white;">or </a>
+            <b><a 
+                (click)="createAccount()" 
+                style="color: white; font-style: oblique;">Create Account!</a></b>
+        </div>
     </form>
 </div>
