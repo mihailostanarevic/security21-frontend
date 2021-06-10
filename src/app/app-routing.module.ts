@@ -12,6 +12,8 @@ import { ApproveRequestComponent } from './pages/approve-request/approve-request
 import { UserRegistrationComponent } from './pages/auth/registration/user-registration/user-registration.component';
 import { UserRequestsComponent } from './pages/auth/registration/user-requests/user-requests.component';
 import { RegistrationConfirmComponent } from './pages/auth/registration/registration-confirm/registration-confirm.component';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: UserRegistrationComponent },
   { path: 'account-confirmation/:id', component: RegistrationConfirmComponent },
+  { path: 'recover-password/:token', component: PasswordRecoveryComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'dashboard', component: DashboardComponent, children: [
       { path: 'certificate-requests', component: CertificateRequestComponent},

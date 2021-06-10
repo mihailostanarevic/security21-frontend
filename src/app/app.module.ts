@@ -25,6 +25,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { UserRegistrationComponent } from './pages/auth/registration/user-registration/user-registration.component';
 import { UserRequestsComponent } from './pages/auth/registration/user-requests/user-requests.component';
 import { RegistrationConfirmComponent } from './pages/auth/registration/registration-confirm/registration-confirm.component';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 registerLocaleData(en);
 
@@ -48,6 +50,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     UserRegistrationComponent,
     UserRequestsComponent,
     RegistrationConfirmComponent
+    PasswordRecoveryComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

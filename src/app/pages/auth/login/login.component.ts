@@ -44,4 +44,8 @@ export class LoginComponent implements OnInit {
   public createAccount(): void{
     this.router.navigateByUrl('registration');
   }
+
+  public forgotPassword(): void {
+    this.router.navigateByUrl('forgot-password');
+  }
 }
