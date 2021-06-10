@@ -24,6 +24,7 @@ import { ApproveRequestComponent } from './pages/approve-request/approve-request
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { UserRegistrationComponent } from './pages/auth/registration/user-registration/user-registration.component';
 import { UserRequestsComponent } from './pages/auth/registration/user-requests/user-requests.component';
+import { RegistrationConfirmComponent } from './pages/auth/registration/registration-confirm/registration-confirm.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
@@ -48,6 +49,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ApproveRequestComponent,
     UserRegistrationComponent,
     UserRequestsComponent,
+    RegistrationConfirmComponent
     PasswordRecoveryComponent,
     ForgotPasswordComponent
   ],

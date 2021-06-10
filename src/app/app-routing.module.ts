@@ -11,6 +11,7 @@ import { CertificateRequestComponent } from './pages/lists/certificate-request/c
 import { ApproveRequestComponent } from './pages/approve-request/approve-request.component';
 import { UserRegistrationComponent } from './pages/auth/registration/user-registration/user-registration.component';
 import { UserRequestsComponent } from './pages/auth/registration/user-requests/user-requests.component';
+import { RegistrationConfirmComponent } from './pages/auth/registration/registration-confirm/registration-confirm.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'create-request', component: CreateRequestComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: UserRegistrationComponent },
+  { path: 'account-confirmation/:id', component: RegistrationConfirmComponent },
   { path: 'recover-password/:token', component: PasswordRecoveryComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   {

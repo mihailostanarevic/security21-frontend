@@ -27,4 +27,8 @@ export class UserService {
   public deny(id): Observable<any> {
     return this.http.get(`${this.baseUrl}users/${id}/deny`);
   }
+
+  public confirmAccount(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}users/${id}/confirm`);
+  }
 }
