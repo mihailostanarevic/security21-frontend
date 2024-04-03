@@ -5,7 +5,7 @@
         </a>
     </div>
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-      <nz-form-item>
+      <nz-form-item style="width:100%">
         <nz-form-control>
           <nz-input-group nzPrefixIcon="user">
             <input type="text" nz-input formControlName="username" placeholder="Email" />
@@ -13,7 +13,7 @@
           <nz-form-explain *ngIf="validateForm.get('username')?.dirty && validateForm.get('username')?.errors">Please enter your email address!</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
-      <nz-form-item>
+      <nz-form-item style="width:100%">
         <nz-form-control>
           <nz-input-group nzPrefixIcon="lock">
             <input type="password" nz-input formControlName="password" placeholder="Password" />
